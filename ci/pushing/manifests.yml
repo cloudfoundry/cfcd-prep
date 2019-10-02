@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: rscale/cf-cli
+    tag: 'latest'
+
+inputs:
+- name: ci
+
+run:
+  path: ci/ci/pushing/manifests.sh
+
+params:
+  CF_API: 
+  CF_USERNAME: 
+  CF_PASSWORD: 
+  CF_ORG: 
+  CF_SPACE: 
+  CF_APP_DOMAIN: 
+  SITE_URL: 

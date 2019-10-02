@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: rscale/hugo
+    tag: 'latest'
+
+inputs:
+- name: source
+- name: ci
+- name: version
+
+outputs:
+- name: site
+
+run:
+  path: ci/ci/tasks/build.sh

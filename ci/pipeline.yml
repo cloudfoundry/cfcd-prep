@@ -1,0 +1,164 @@
+---
+
+staging-params: &staging-params
+      CF_API: ((cf_staging_api))
+      CF_USERNAME: ((cf_staging_user)) 
+      CF_PASSWORD: ((cf_staging_pwd))
+      CF_ORG: ((cf_staging_org))
+      CF_SPACE: ((cf_staging_space))
+      HOSTNAME: ((cf_staging_hostname))
+      DOMAIN: ((cf_staging_domain))
+      NUM_INSTANCES: ((cf_staging_num_instances))
+      MEMORY: ((cf_staging_memory))
+
+testing-params: &testing-params
+      CF_API: ((cf_staging_api))
+      CF_USERNAME: ((cf_staging_user)) 
+      CF_PASSWORD: ((cf_staging_pwd))
+      CF_ORG: ((cf_test_org))
+      CF_SPACE: ((cf_test_space))
+      CF_APP_DOMAIN: ((cf_staging_domain))
+      SITE_URL: "https://((cf_staging_hostname)).((cf_staging_domain))"
+
+prod-params: &prod-params
+      CF_API: ((cf_prod_api))
+      CF_USERNAME: ((cf_prod_user)) 
+      CF_PASSWORD: ((cf_prod_pwd))
+      CF_ORG: ((cf_prod_org))
+      CF_SPACE: ((cf_prod_space))
+      HOSTNAME: ((cf_prod_hostname))
+      DOMAIN: ((cf_prod_domain))
+      NUM_INSTANCES: ((cf_prod_num_instances))
+      MEMORY: ((cf_prod_memory))
+
+resources:
+
+- name: source
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry/cfcd-prep.git
+    branch: master
+    username: ((github_username))
+    password: ((github_password))
+    ignore_paths: [ci/*]
+
+- name: ci
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry/cfcd-prep.git
+    branch: master
+    username: ((github_username))
+    password: ((github_password))
+    paths: [ci/*]
+
+- name: version
+  type: semver
+  source:
+    driver: s3
+    initial_version: 0.0.1
+    bucket: ((aws_artifact_bucket))
+    key: cfcd-prep/cfcd-prep-version
+    access_key_id: ((aws_access_key_id))
+    secret_access_key: ((aws_secret_access_key))
+    region_name: ((aws_region))
+
+- name: artifact
+  type: s3
+  source:
+    regexp: cfcd-prep/cfcd-prep-(.*).zip
+    bucket: ((aws_artifact_bucket))
+    access_key_id: ((aws_access_key_id))
+    secret_access_key: ((aws_secret_access_key))
+    region_name: ((aws_region))
+
+jobs:
+   
+- name: build
+  serial_groups: [staging]
+  plan: 
+  - in_parallel:
+    - get: source
+      trigger: true 
+      params: {depth: 1}
+    - get: ci
+      params: {depth: 1}
+    - get: version
+      params: {pre: rc}
+  - task: build
+    file: ci/ci/tasks/build.yml  
+  - put: artifact
+    params: {file: site/*}
+  - put: version
+    params: {file: version/version}
+
+- name: deploy-staging
+  serial_groups: [staging]
+  plan: 
+  - in_parallel:
+    - get: artifact
+      trigger: true 
+      passed: [build]
+    - get: ci
+      params: {depth: 1}
+  - task: deploy
+    file: ci/ci/tasks/deploy.yml  
+    params:
+      << : *staging-params
+
+- name: deploy-prod
+  serial_groups: [staging]
+  plan: 
+  - in_parallel:
+    - get: artifact
+      passed: [deploy-staging]
+    - get: ci
+      params: {depth: 1}
+  - task: deploy
+    file: ci/ci/tasks/deploy.yml  
+    params:
+      << : *prod-params
+
+# - name: integration-test
+#   serial_groups: [staging]
+#   plan: 
+#   - in_parallel:
+#     - get: artifact
+#       trigger: true 
+#       passed: [deploy-staging]
+#     - get: ci
+#       params: {depth: 1}
+#   - task: push-zip-files
+#     file: ci/ci/pushing/zip-files.yml  
+#     params:
+#       << : *testing-params
+#   - task: push-scaling
+#     file: ci/ci/pushing/scaling.yml  
+#     params:
+#       << : *testing-params
+#   - task: push-manifests
+#     file: ci/ci/pushing/manifests.yml  
+#     params:
+#       << : *testing-params
+
+# - name: cleanup
+#   serial_groups: [staging]
+#   plan: 
+#   - in_parallel:
+#     - get: ci
+#       params: {depth: 1}
+#   - task: cleanup
+#     file: ci/ci/tasks/cleanup.yml
+#     params:
+#       << : *testing-params
+
+- name: minor
+  serial_groups: [version]
+  plan:
+  - put: version
+    params: {bump: minor, pre: rc}
+
+- name: major
+  serial_groups: [version]
+  plan:
+  - put: version
+    params: {bump: major, pre: rc}

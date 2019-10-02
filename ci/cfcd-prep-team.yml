@@ -1,0 +1,8 @@
+---
+roles:
+- name: owner
+  github:
+    users: ["spgreenberg"]
+- name: member
+  github:
+    users: ["mogul"]

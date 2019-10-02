@@ -1,0 +1,36 @@
+baseURL = "/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "CFCD Prep"
+author = "Cloud Foundry Foundation"
+description = "Preparation materials for the Cloud Foundry Certified Developer exam"
+theme = "hugo-theme-learn"
+
+
+
+enableInlineShortcodes = "true"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.en]
+title = "CFCD Prep"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://github.com/cloudfoundry/cfcd-prep"
+weight = 10
+
+[params]
+editURL = "https://github.com/cloudfoundry/cfcd-prep/tree/master/content/"
+description = "Preparation materials for the Cloud Foundry Certified Developer exam"
+author = "Cloud Foundry Foundation"
+disableBreadcrumb = false
+disableNextPrev = false
+themeVariant = "cff"
+disableShortcutsTitle = true
+disableInlineCopyToClipBoard = true
