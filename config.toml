@@ -5,8 +5,7 @@ title = "CFCD Prep"
 author = "Cloud Foundry Foundation"
 description = "Preparation materials for the Cloud Foundry Certified Developer exam"
 theme = "hugo-theme-learn"
-
-
+googleAnalytics = "UA-109952187-4"
 
 enableInlineShortcodes = "true"
 
