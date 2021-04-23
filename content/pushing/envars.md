@@ -75,7 +75,7 @@ Be extra careful if you need to edit a manifest during the exam. Yaml can be qui
 To remove an environment variable in CF, you *must* use `cf unset-env`. Because you can set variables via the CLI or a manifest, simply removing a value from a manifest and re-pushing will *not* work. You must unset the value and remove it from the manifest.
 
 ```
-cf unset-env TRAINING_KEY_1
+cf unset-env training-app TRAINING_KEY_1
 ```
 
 ## Special environment variables
