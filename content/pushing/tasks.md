@@ -16,7 +16,7 @@ The training-app contains a task that will dump all environment variables to sta
 You can run the task using `cf run-task`. With this command you can specify the amount of disk and memory allocated to the tasks' container. Given our task is lightweight, we can allocate few resources:
 
 ```
-cf run-task training-app -m 8M -k 64M --name printenv "tasks/printenv.sh"
+cf run-task training-app -m 8M -k 64M --name printenv --command "tasks/printenv.sh"
 ```
 
 You will notice we also assigned a task name `printenv`. Like an app name, this is a human readable name used to reference the task inside Cloud Foundry. Cloud Foundry will assign a task id and queue the task for execution.
