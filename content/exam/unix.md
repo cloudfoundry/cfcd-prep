@@ -4,7 +4,7 @@ weight = "3"
 +++
 
 
-The certification exam leverages a browser-based Linux terminal. The CF CLI will be preinstalled in this terminal. If you are comfortable with the Linux command line and one of the text editors listed below, you can safely skip this section. However, if you are primarily a Windows user, we recommend you practice using a Linux terminal ahead of the exam.
+The certification exam leverages a browser-based Linux terminal. The CF CLI version 8+ will be preinstalled in this terminal. If you are comfortable with the Linux command line and one of the text editors listed below, you can safely skip this section. However, if you are primarily a Windows user, we recommend you practice using a Linux terminal ahead of the exam.
 
 ## How to Practice
 
