@@ -3,7 +3,7 @@ title = "Anatomy of the Exam"
 weight = "1"
 +++
 
-The Cloud Foundry Certified Developer examination is a 3-hour, proctored exam. The exam consists of 10 performance-based items and 10 multiple choice questions.
+The Cloud Foundry Certified Developer examination is a 3-hour, proctored exam. The exam consists of 10 performance-based items and 10 multiple choice questions. The exam utilizes CLI version 8+ and API version 3+.
 
 ## Performance-Based Items
 
@@ -27,13 +27,11 @@ Candidates are given up to 3 hours to complete the exam unless special accomodat
 
 ## Scope
 
-Cloud Foundry significantly reduces the complexity of deploying and managing applications. Version 2 of the certification exam reflects this. Said another way, the exam does not test the far reaches of Cloud Foundry. It is scoped to the typical day-to-day tasks and knowledge required of a developer using the platform.
-
-As Chip Childers, CTO at Cloud Foundry Foundation states: “If you use Cloud Foundry with any regularity, you should pass the certification exam — it’s as simple as that.” 
+Cloud Foundry significantly reduces the complexity of deploying and managing applications. Said another way, the exam does not test the far reaches of Cloud Foundry. It is scoped to the typical day-to-day tasks and knowledge required of a developer using the platform. 
 
 ### Domains and Competencies
 
-CFCD v2.0 Domain & Competencies are outlined below. This is the list of competencies that are in scope for testing. Competencies may be on the list below but not show up on the exam.
+CFCD Domain & Competencies are outlined below. This is the list of competencies that are in scope for testing. Competencies may be on the list below but not show up on the exam.
 
 **Application Lifecycle**
 
