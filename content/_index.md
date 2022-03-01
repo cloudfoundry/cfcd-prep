@@ -5,7 +5,7 @@ title = "CFCD Prep"
 # Exam Preparation
 # Cloud Foundry Certified Developer 
 
-Welcome to the preparation class for version 2 of the Cloud Foundry Certified Developer examination. This class is designed to prepare existing Cloud Foundry users, or those who have taken Cloud Foundry Developer training, to pass the exam. *It is not a substitute for comprehensive Cloud Foundry training.*
+Welcome to the preparation class for the Cloud Foundry Certified Developer examination. This class is designed to prepare existing Cloud Foundry users, or those who have taken Cloud Foundry Developer training, to pass the exam. *It is not a substitute for comprehensive Cloud Foundry training.*
 
 ## Overview
 
