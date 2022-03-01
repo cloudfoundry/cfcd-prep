@@ -20,6 +20,7 @@ Org roles grant user access at the org level.
 * **OrgManager**: Org managers can administer the org (they can create/modify/delete spaces, org-level roles, domains, etc in that org). 
 * **OrgAuditor**: Org auditors have read-only access to the org.
 * **BillingManager**: Billing managers can create and manage billing account and payment information associated with the org in Cloud Foundry instances that have deployed the billing engine.
+* **Org Users**: Read-only access to the list of other org users and their roles.
 
 Org roles do not cascade into spaces. For example, an `OrgManager` *cannot* deploy apps to spaces in the org. However, they can grant the `SpaceDeveloper` role to a user (including themselves) for a particular space.
 
@@ -30,3 +31,4 @@ Space roles grant user access at the space level.
 * **SpaceManager**: Space managers can administer roles for a space.
 * **SpaceDeveloper**: Space developers can manage apps, services and routes in a space. A user must have the `SpaceDeveloper` role to push apps.
 * **SpaceAuditor**: Space auditors have read-only access to a space.
+* **Space Supporters**: Troubleshoot and debug apps and service bindings in a space.
