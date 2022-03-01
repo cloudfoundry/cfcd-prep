@@ -26,7 +26,7 @@ Note that services offered and the names of services can vary between Cloud Foun
 Once you have identified the service offering you are looking for, you can see the details of that offering with:
 
 ```
-cf marketplace -s <SERVICE_NAME>
+cf marketplace -e <SERVICE_OFFERING>
 ```
 
 You will see details about each plan (or tier) the broker is making available. 
