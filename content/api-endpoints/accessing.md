@@ -5,7 +5,7 @@ weight = "3"
 
 ## API versions
 
-The Cloud Foundry API is constantly evolving. The [v2 API](https://apidocs.cloudfoundry.org) is what most users are familiar with. However, the development teams have been hard at work adding new capabilities via the [v3 API](https://v3-apidocs.cloudfoundry.org). You should have general awareness that these API versions exist.
+The Cloud Foundry API is constantly evolving. The [v2 API](https://apidocs.cloudfoundry.org) is now deprecated and has been replaced by the [v3 API](https://v3-apidocs.cloudfoundry.org). You should have general awareness that these API versions exist.
 
 ## Accessing the API
 
@@ -22,10 +22,10 @@ Internally, the CLI is *usually* making one or more REST calls to the API. The C
 The CLI and API are both **common-core** (standard across Cloud Foundry distributions). However, that doesn't mean all combinations of CLI + API Endpoint always work. The CLI and API, while related, are different projects evolving at different paces, with independent versions. Because Cloud Foundry deployments are updated at different paces (essentially updating the API version), it can be useful to ensure your version of the CLI works with a given Cloud Foundry deployment. You can do this by curling the API.
 
 ```
-cf curl /v2/info
+cf curl /v3/info
 ```
 
-The above command uses the CLI to execute a curl request. Notice you do not have to specify the API endpoint as the CLI is inserting this for you. Therefore, the actual request is being sent to `https://<your-api-endpoint>/v2/info`. While this particular REST path does not require authentication, the CLI will include the correct authentication token header if the CLI has been authenticated with the API endpoint.
+The above command uses the CLI to execute a curl request. Notice you do not have to specify the API endpoint as the CLI is inserting this for you. Therefore, the actual request is being sent to `https://<your-api-endpoint>/v3/info`. While this particular REST path does not require authentication, the CLI will include the correct authentication token header if the CLI has been authenticated with the API endpoint.
 
 ## When to use the API
 
