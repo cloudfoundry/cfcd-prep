@@ -60,7 +60,7 @@ curl <STATIC_APP_ROUTE>:8080
 You will see a `Connection Refused` error. This is because Cloud Foundry is blocking the request. We must explicitly allow this by adding a network policy.
 
 ```
-cf add-network-policy training-app --destination-app static-app
+cf add-network-policy training-app static-app
 ```
 
 Now, if you retry the curl from inside the training-app container, you should see it succeed:
