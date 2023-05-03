@@ -13,4 +13,4 @@ Please feel free to open pull requests for updates to the course material. When 
 * New content is scoped appropriately to the exam. Exam content aligns with the [domains and competencies](https://training.linuxfoundation.org/certification/cloud-foundry-certified-developer-cfcd/#domains).
 * Content provides a functional review of the topics covered. The exam consists of performance based challenges and this exam prep content must not mirror the exam too closely. 
 
-If you have questions on the above, please open a Github issue for discussion.
+If you have questions on the above, please open a Github issue for discussion. .... test
