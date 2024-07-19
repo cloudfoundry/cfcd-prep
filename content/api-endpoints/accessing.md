@@ -5,7 +5,7 @@ weight = "3"
 
 ## API versions
 
-The Cloud Foundry API is constantly evolving. The [v2 API](https://apidocs.cloudfoundry.org) is now deprecated and has been replaced by the [v3 API](https://v3-apidocs.cloudfoundry.org). You should have general awareness that these API versions exist.
+The Cloud Foundry API is constantly evolving. The [v2 API](https://v2-apidocs.cloudfoundry.org) is now deprecated and has been replaced by the [v3 API](https://v3-apidocs.cloudfoundry.org). You should have general awareness that these API versions exist.
 
 ## Accessing the API
 

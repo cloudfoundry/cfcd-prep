@@ -101,7 +101,7 @@ Programming tasks and specific programming languages are not in scope. The exam 
 In addition to the testing interface detailed in the next section, you may have **one** additional browser tab opened during the exam. In that tab, you will be allowed to access:
 
 - docs.cloudfoundry.org
-- apidocs.cloudfoundry.org
+- v2-apidocs.cloudfoundry.org
 - v3-apidocs.cloudfoundry.org
 - plugins.cloudfoundry.org
 
