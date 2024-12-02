@@ -3,7 +3,7 @@ title = "Setting the Endpoint"
 weight = "1"
 +++
 
-Before you interact with a Cloud Foundry deployment using the CLI, you have set the API endpoint. You can do this either with the `cf api` command or as part of the `cf login` command. Go ahead and set your API endpoint using:
+Before you interact with a Cloud Foundry deployment using the CLI, you have to set the API endpoint. You can do this either with the `cf api` command or as part of the `cf login` command. Go ahead and set your API endpoint using:
 
 ```
 cf api <API_ENDPOINT>
